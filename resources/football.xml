@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<match>
+    <home>
+        <team>Real Madrid</team>
+    </home>
+    <away>
+        <team>FC Liverpool</team>
+    </away>
+    <date>2020-10-15</date>
+    <score>1:3</score>
+    <goals>
+        <home>
+            <player>Anton Bernolak</player>
+            <time unit="min">6</time>
+        </home>
+        <away>
+            <player>Jack Black</player>
+            <time unit="min">20</time>
+        </away>
+        <away>
+            <player>Karol Velky</player>
+            <time unit="min">22</time>
+        </away>
+        <away>
+            <player>Jan Pan</player>
+            <time unit="min">83</time>
+        </away>
+    </goals>
+</match>
