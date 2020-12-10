@@ -17,7 +17,6 @@ public class Main {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(file);
             doc.getDocumentElement().normalize();
-
             NodeList nodeList = doc.getElementsByTagName("match");
             for(int temp=0; temp<nodeList.getLength(); temp++){
                 Node node = nodeList.item(temp);
@@ -40,5 +39,4 @@ public class Main {
     public static void main(String[] args) {
         readFile();
     }
-
 }
