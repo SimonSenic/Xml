@@ -1,12 +1,13 @@
 package sk.kosickaacademic.simon.xml;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 
 public class Main {
@@ -36,7 +37,59 @@ public class Main {
         }
     }
 
+    public static void createXml(){
+        try{
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.newDocument();
+
+            Element root = doc.createElement("shop");
+            doc.appendChild(root);
+            Element item = doc.createElement("item");
+            root.appendChild(item);
+
+            Attr attr = doc.createAttribute("id");
+            attr.setValue("1");
+            item.setAttributeNode(attr);
+            Element name = doc.createElement("name");
+            name.appendChild(doc.createTextNode("Milk"));
+            item.appendChild(name);
+            Element price = doc.createElement("price");
+            price.appendChild(doc.createTextNode("3"));
+            item.appendChild(price);
+            Element date = doc.createElement("date");
+            date.appendChild(doc.createTextNode("2020-12-17"));
+            item.appendChild(date);
+
+            item = doc.createElement("item");
+            root.appendChild(item);
+
+            attr = doc.createAttribute("id");
+            attr.setValue("2");
+            item.setAttributeNode(attr);
+            name = doc.createElement("name");
+            name.appendChild(doc.createTextNode("Bread"));
+            item.appendChild(name);
+            price = doc.createElement("price");
+            price.appendChild(doc.createTextNode("2.30"));
+            item.appendChild(price);
+            date = doc.createElement("date");
+            date.appendChild(doc.createTextNode("2020-12-19"));
+            item.appendChild(date);
+
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+            DOMSource domSource = new DOMSource(doc);
+            StreamResult sr = new StreamResult(new File("output/shop.xml"));
+            transformer.transform(domSource, sr);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
-        readFile();
+        //readFile();
+        createXml();
     }
 }
