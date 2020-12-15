@@ -57,9 +57,9 @@ public class Main {
             Element price = doc.createElement("price");
             price.appendChild(doc.createTextNode("3"));
             item.appendChild(price);
-            Element date = doc.createElement("date");
-            date.appendChild(doc.createTextNode("2020-12-17"));
-            item.appendChild(date);
+            Element expiration_date = doc.createElement("expiration_date");
+            expiration_date.appendChild(doc.createTextNode("2020-12-17"));
+            item.appendChild(expiration_date);
 
             item = doc.createElement("item");
             root.appendChild(item);
@@ -73,9 +73,9 @@ public class Main {
             price = doc.createElement("price");
             price.appendChild(doc.createTextNode("2.30"));
             item.appendChild(price);
-            date = doc.createElement("date");
-            date.appendChild(doc.createTextNode("2020-12-19"));
-            item.appendChild(date);
+            expiration_date = doc.createElement("expiration_date");
+            expiration_date.appendChild(doc.createTextNode("2020-12-19"));
+            item.appendChild(expiration_date);
 
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer transformer = tf.newTransformer();
@@ -102,7 +102,7 @@ public class Main {
                     Element element = (Element)node;
                     System.out.println(element.getElementsByTagName("name").item(0).getTextContent() +" "
                             +element.getElementsByTagName("price").item(0).getTextContent() +" "
-                            +element.getElementsByTagName("date").item(0).getTextContent());
+                            +element.getElementsByTagName("expiration_date").item(0).getTextContent());
                 }
             }
         }catch(Exception e){

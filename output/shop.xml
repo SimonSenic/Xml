@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><shop><item id="1"><name>Milk</name><price>3</price><date>2020-12-17</date></item><item id="2"><name>Bread</name><price>2.30</price><date>2020-12-19</date></item></shop>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><shop><item id="1"><name>Milk</name><price>3</price><expiration_date>2020-12-17</expiration_date></item><item id="2"><name>Bread</name><price>2.30</price><expiration_date>2020-12-19</expiration_date></item></shop>
