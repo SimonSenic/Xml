@@ -88,8 +88,31 @@ public class Main {
         }
     }
 
+    public static void readXml(){
+        try{
+            File file = new File("output/shop.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(file);
+            doc.getDocumentElement().normalize();
+            NodeList nodeList = doc.getElementsByTagName("item");
+            for(int temp=0; temp<nodeList.getLength(); temp++){
+                Node node = nodeList.item(temp);
+                if(node.getNodeType() == Node.ELEMENT_NODE){
+                    Element element = (Element)node;
+                    System.out.println(element.getElementsByTagName("name").item(0).getTextContent() +" "
+                            +element.getElementsByTagName("price").item(0).getTextContent() +" "
+                            +element.getElementsByTagName("date").item(0).getTextContent());
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         //readFile();
         createXml();
+        readXml();
     }
 }
